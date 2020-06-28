@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>diary</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="{%static "CSS/style1.css"%}"/>
+  </head>
+  <body>
+  <div class="main">
+    <div class="form-style-3">
+    <fieldset><strong><h1><legend>WELCOME TO YOUR DIARY</legend></h1></strong>
+    <form class="" action="{%url 'app:view'%}" method="post">
+      {%csrf_token%}
+      <strong><label for="date">Search A Note By Date</label><strong>
+      <br>
+      <input type="date" name="date" data-date-format="yyyy-mm-dd">
+    <input type="submit"  value="FIND">
+    <br><br>
+    </form>
+      <a href="{% url 'app:write' %}">ADD A NOTE TO YOUR DIARY</a>
+    </div>
+  </fieldset>
+</div>
+</div>
+
+</div>
+  </body>
+</html>

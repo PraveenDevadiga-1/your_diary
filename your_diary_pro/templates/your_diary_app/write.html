@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Diary_Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="{%static "CSS/style2.css"%}"/>
+  </head>
+   <body>
+     <div style="display: flex; justify-content: flex-end">
+     <div class="main">
+     <!-- <form  method="post"> -->
+     <!-- {% csrf_token %} -->
+     <!-- <strong><h3>{{diary_form.as_p}}</strong></h3> -->
+     <!-- <input type="submit" name="" value="submit"> -->
+   <!-- </form> -->
+<div class="form-style-3">
+<form method="post">
+  {%csrf_token%}
+<fieldset><legend>WRITE YOUR NOTE HERE (name should be your username)</legend>
+   <span></span>{{diary_form.as_p}}
+<label><span> </span><input type="submit" value="ADD TO YOUR DIARY" /></label>
+</fieldset>
+</form>
+
+</div>
+</div>
+</div>
+  </body>
+</html>

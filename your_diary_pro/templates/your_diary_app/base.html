@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>YOUR_DIARY</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="{%static "CSS/style.css"%}"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+    	ul {margin:0}
+    	ul li {float:left;}
+    	ul li {
+    		padding: 60px;
+    		list-style:none;
+    	}
+      h2 {
+        padding :40px;
+      }
+    	</style>
+
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <h2 class="navbar-brand brand-name">
+      <img class="img-responsive2" src="{% static "logo/logo.jpg" %}"/>
+     </h2>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+   <span class="navbar-toggler-icon"></span>
+ </button>
+ <div class="collapse navbar-collapse" id="navbarSupportedContent">
+   <ul class="navbar-nav mr-auto">
+     <li class="nav-item active">
+       <a class="nav-link" href="{% url 'index' %}"> Home <span class="sr-only">(current)</span></a>
+     </li>
+
+     <li class="nav-item">
+       <a class="nav-link" href="{%url 'app:register'%}"> REGISTER </a>
+     </li>
+
+     {% if user.is_authenticated %}
+      <li class="nav-item"><li><a class="nav-link" href="{% url 'logout'%}">LOGOUT (logged in as {{user.username}})</a></li></li>
+      {% else %}
+      <li class="nav-item"><li><a class="nav-link" href="{% url 'app:user_login' %}">LOGIN</a></li></li>
+      {% endif %}
+   </ul>
+ </div>
+</nav>
+       <div class="container">
+         {%block body_block%}
+           <!-- include -->
+         {%endblock%}
+
+       </div>
+
+
+
+  </body>
+</html>
